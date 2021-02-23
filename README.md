@@ -5,4 +5,5 @@
 - [x] json web token (JWT)
 - [x] save user/JTW to local storage
 - [x] Display username on menubar
-- [x] Add new product to API
+- [x] (CREATE)Add new product to API
+- [x] (UPDATE)Add new product to API with PUT method

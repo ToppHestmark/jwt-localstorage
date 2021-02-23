@@ -12,10 +12,12 @@ const createProducts = async () => {
     productContainer.innerHTML = "";
     productsData.map((product) => {
       productContainer.innerHTML += `
-        <a class="product" href="detail.html?id=${product.id}">
+        <div class="product">
             <h4>${product.name}</h4>
             <p>Price: ${product.price}</p>
-        </a>`;
+            <a href="detail.html?id=${product.id}">Details</a>
+            <a href="edit.html?id=${product.id}">Edit</a>
+        </div>`;
     });
   } catch (error) {
     console.log(error);
