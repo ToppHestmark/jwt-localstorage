@@ -1,16 +1,17 @@
 import { baseUrlStrapi } from "./settings/api.js";
-import displayMessage from "./components/common/displayMessage.js";
+import { displayMessage, createMenu } from "./components/index.js";
 
-(async () => {
-  const container = document.querySelector(".product-container");
+createMenu();
+
+const createProducts = async () => {
+  const productContainer = document.querySelector(".product-container");
 
   try {
-    const products = await (await fetch(`${baseUrlStrapi}products`)).json();
+    const productsData = await (await fetch(`${baseUrlStrapi}products`)).json();
 
-    container.innerHTML = "";
-
-    products.map((product) => {
-      container.innerHTML += `
+    productContainer.innerHTML = "";
+    productsData.map((product) => {
+      productContainer.innerHTML += `
         <a class="product" href="detail.html?id=${product.id}">
             <h4>${product.name}</h4>
             <p>Price: ${product.price}</p>
@@ -20,4 +21,5 @@ import displayMessage from "./components/common/displayMessage.js";
     console.log(error);
     displayMessage("error", error, ".product-container");
   }
-})();
+};
+createProducts();

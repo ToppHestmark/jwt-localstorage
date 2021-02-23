@@ -1,6 +1,8 @@
-import displayMessage from "./components/common/displayMessage.js";
+import { displayMessage, createMenu } from "./components/index.js";
 import { saveToken, saveUser } from "./utils/storage.js";
 import { baseUrlStrapi } from "./settings/api.js";
+
+createMenu();
 
 const form = document.querySelector("form");
 const username = document.querySelector("#username");
