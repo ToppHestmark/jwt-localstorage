@@ -14,13 +14,25 @@ export default function createMenu() {
   `;
 
   if (username) {
-    authLink = `<span>Hello ${username} </span>`;
+    authLink = `
+    <a 
+      href="add.html" 
+      class="${pathname === "/add.html" ? "active" : ""}"> 
+      Add Product 
+    </a>
+    <span>Hello ${username} </span>
+    `;
   }
 
   const menuContainer = document.querySelector(".menu-container");
   menuContainer.innerHTML = `
   <div class="menu">
-    <a href="/" class="${pathname === "/" ? "active" : ""}"> Home </a>
+    <a 
+      href="/"
+      class="${pathname === "/" || pathname === "/index.html" ? "active" : ""}"
+      > 
+    Home 
+    </a>
     ${authLink}
   </div>
   `;

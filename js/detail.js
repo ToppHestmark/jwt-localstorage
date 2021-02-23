@@ -1,4 +1,4 @@
-import { baseUrlStrapi } from "./settings/api.js";
+import { baseUrl } from "./settings/api.js";
 import displayMessage from "./components/common/displayMessage.js";
 
 const params = new URLSearchParams(document.location.search);
@@ -8,7 +8,7 @@ if (!id) {
   document.location.href = "/";
 }
 
-const productDetailsUrl = `${baseUrlStrapi}products/${id}`;
+const productDetailsUrl = `${baseUrl}products/${id}`;
 console.log(productDetailsUrl);
 
 (async () => {

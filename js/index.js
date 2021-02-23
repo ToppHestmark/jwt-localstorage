@@ -1,4 +1,4 @@
-import { baseUrlStrapi } from "./settings/api.js";
+import { baseUrl } from "./settings/api.js";
 import { displayMessage, createMenu } from "./components/index.js";
 
 createMenu();
@@ -7,7 +7,7 @@ const createProducts = async () => {
   const productContainer = document.querySelector(".product-container");
 
   try {
-    const productsData = await (await fetch(`${baseUrlStrapi}products`)).json();
+    const productsData = await (await fetch(`${baseUrl}products`)).json();
 
     productContainer.innerHTML = "";
     productsData.map((product) => {

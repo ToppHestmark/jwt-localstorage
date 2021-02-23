@@ -1,6 +1,6 @@
 import { displayMessage, createMenu } from "./components/index.js";
 import { saveToken, saveUser } from "./utils/storage.js";
-import { baseUrlStrapi } from "./settings/api.js";
+import { baseUrl } from "./settings/api.js";
 
 createMenu();
 
@@ -26,7 +26,7 @@ function submitForm(event) {
 }
 
 async function performLogin(username, password) {
-  const url = baseUrlStrapi + "auth/local";
+  const url = baseUrl + "auth/local";
 
   const data = JSON.stringify({ identifier: username, password: password });
 
