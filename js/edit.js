@@ -1,7 +1,9 @@
-import { displayMessage, createMenu } from "./components/index.js";
+import { displayMessage, createMenu, deleteBtn } from "./components/index.js";
 import { getToken } from "./utils/storage.js";
 import { baseUrl } from "./settings/api.js";
 
+const token = getToken();
+if (!token) location.href = "/";
 createMenu();
 
 const params = new URLSearchParams(document.location.search);
@@ -29,6 +31,8 @@ const loading = document.querySelector(".loading");
     price.value = details.price;
     description.value = details.description;
     idInput.value = details.id;
+
+    deleteBtn(details.id);
 
     console.log(details);
   } catch (error) {
@@ -73,8 +77,6 @@ async function updateProduct(name, price, description, id) {
     price: price,
     description: description,
   });
-
-  const token = getToken();
 
   const options = {
     method: "PUT",

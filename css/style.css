@@ -113,3 +113,9 @@ button {
 .delete {
   background: darkred;
 }
+
+#logout {
+  width: auto;
+  background-color: var(--link-color);
+  margin: 0 1rem;
+}

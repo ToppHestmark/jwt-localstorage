@@ -21,6 +21,10 @@ export function getUsername() {
   return null;
 }
 
+export function clearStorage() {
+  localStorage.clear();
+}
+
 function saveToStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
@@ -28,7 +32,7 @@ function saveToStorage(key, value) {
 function retrieveFromStorage(key) {
   const value = localStorage.getItem(key);
 
-  if (!value) return [];
+  if (!value) return null;
 
   return JSON.parse(value);
 }

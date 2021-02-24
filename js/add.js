@@ -2,6 +2,9 @@ import { displayMessage, createMenu } from "./components/index.js";
 import { getToken } from "./utils/storage.js";
 import { baseUrl } from "./settings/api.js";
 
+const token = getToken();
+if (!token) location.href = "/";
+
 createMenu();
 
 const form = document.querySelector("form");
@@ -44,8 +47,6 @@ async function addProduct(name, price, description) {
     price: price,
     description: description,
   });
-
-  const token = getToken();
 
   const options = {
     method: "POST",
